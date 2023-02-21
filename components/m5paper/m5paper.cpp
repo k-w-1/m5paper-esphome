@@ -15,7 +15,7 @@ namespace m5paper {
 static const char *TAG = "m5paper.component";
 
 void M5PaperComponent::setup() {
-    ESP_LOGE(TAG, "m5paper starting up!");
+    ESP_LOGV(TAG, "m5paper starting up!");
     this->main_power_pin_->pin_mode(gpio::FLAG_OUTPUT);
     this->main_power_pin_->digital_write(true);
 
@@ -36,7 +36,7 @@ void M5PaperComponent::setup() {
 }
 
 void M5PaperComponent::shutdown_main_power() {
-    ESP_LOGE(TAG, "Shutting Down Power");
+    ESP_LOGV(TAG, "Shutting Down Power");
     adc_power_release();
 
     if (ALLOW_ESPHOME_DEEP_SLEEP) {

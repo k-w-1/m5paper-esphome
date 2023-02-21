@@ -6,8 +6,9 @@
 #include "esphome/core/automation.h"
 
 #ifdef USE_ESP32
-#include "driver/adc.h"
-#include <esp_adc_cal.h>
+    #include "driver/adc.h"
+    #include <esp_adc_cal.h>
+    #include "soc/adc_channel.h"
 #endif
 
 namespace esphome {
