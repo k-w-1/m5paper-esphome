@@ -133,6 +133,8 @@ namespace gt911 {
 
 #ifndef lowByte
   #define lowByte(a)  ((uint8_t)(a & 0xFF))
+#endif
+#ifndef highByte
   #define highByte(a) ((uint8_t)((a >> 8) & 0xFF))
 #endif
 
