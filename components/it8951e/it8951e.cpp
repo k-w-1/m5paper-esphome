@@ -196,6 +196,8 @@ uint32_t IT8951ESensor::get_buffer_length_() { return this->get_width_internal()
 void IT8951ESensor::get_device_info(IT8951DevInfo *info) {
     this->write_command(IT8951_I80_CMD_GET_DEV_INFO);
     this->read_words(info, sizeof(IT8951DevInfo));
+    info->usPanelH = M5EPD_PANEL_H; // On my m5paper "community" edition, junk values are returned.
+    info->usPanelW = M5EPD_PANEL_W; // So let's just fix them right here, then all should be well.
     ESP_LOGVV(TAG, "Height:%d Width:%d LUT: %s, FW: %s, Mem:%x", 
         info->usPanelH, 
         info->usPanelW,
